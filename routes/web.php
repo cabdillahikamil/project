@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StaticController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('Home', [StaticController::class, 'home']);
+
+Route::get('about', function () {
+    return view('about');
 });
+Route::get('contact', function () {
+    return view('contact');
+});
+
+Route::get('top_place', [StaticController::class, 'trips']);
+
+Route::get('tour_details/{id}', [StaticController::class, 'trip']);
